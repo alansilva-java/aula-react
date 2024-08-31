@@ -6,31 +6,23 @@ import { useEffect, useState } from "react";
 
 const Page = () => {
 
-  /*
-  1. Definição da função que vai rodar.
-  2. Definição de quando vai rodar
-  3. Definição do que fazer quando o componente sumir/unload
-  */
-
-  const [ name, setName] = useState('Alan');
-  const [ age, setAge] = useState('90')
+  const [ firstName, setFirstName] = useState('Alan');
+  const [ lastName, setLastName] = useState('Silva')
+  const [ fullName, setFullName] = useState('');
 
   useEffect(() => {
-    console.log('rodou o effect')
-  }, [age]);
+    setFullName(firstName + ' ' + lastName);
+  }, [firstName, lastName]);
 
 
   
 
   return (
     <div className="flex flex-col px-3">
-      <p>Meu nome é {name} e eu tenho {age} anos</p>
+      <p>Meu nome é {fullName}</p>
       <div className="flex flex-col">
-      <button className=" hover:bg-opacity-50 text-left px-3 py2 rounded-md border border-blue-500 bg-red-400" onClick={() => setName('Pedro')}>Mudar para Pedro</button>
-      <button className=" hover:bg-opacity-50 text-left px-3 py2 rounded-md border border-blue-500 bg-red-400" onClick={() => setName('João')}>Mudar para João</button>
-      <button className=" hover:bg-opacity-50 text-left px-3 py2 rounded-md border border-blue-500 bg-red-400" onClick={() => setAge('18')}>Mudar idade para 18</button>
-      <button className=" hover:bg-opacity-50 text-left px-3 py2 rounded-md border border-blue-500 bg-red-400" onClick={() => setAge('45')}>Mudar idade para 45</button>
-
+      <button className=" hover:bg-opacity-50 text-left px-3 py2 rounded-md border border-blue-500 bg-red-400" onClick={() => setFirstName('Pedro')}>Mudar para Pedro</button>
+      <button className=" hover:bg-opacity-50 text-left px-3 py2 rounded-md border border-blue-500 bg-red-400" onClick={() => setFirstName('João')}>Mudar para João</button>
       </div>
     </div>
 
