@@ -35,7 +35,7 @@ const Page = () => {
   }
 
   const removeItem = (id: number) => {
-    setList (list.filter(t => ) );
+    setList (list.filter(t => t.id !== id ) );
   }
 
   return (
