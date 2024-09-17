@@ -1,11 +1,11 @@
-import { CountContext } from "@/app/contexts/CountContext"
+import { CountContext } from "@/app/contexts/LoggedUser"
 import { useContext } from "react"
 
 export const OnlineUsers = () => {
     const countCtx = useContext(CountContext)
 
     const handleBanAll = () => {
-      countCtx?.SetOnlineCount(0);
+      countCtx?.setOnlineCount(0);
     }
 
     return(

@@ -1,19 +1,21 @@
 "use client"
 
+import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
-import { CountContext } from "./contexts/CountContext";
-import { useState } from "react";
+import { PostProvider } from "./contexts/PostContext";
+import { PostList } from "@/components/PostList";
+
 
 const Page = () => {
-  const [onlineCount, setOnlineCount] = useState(92);
 
   return (
+    <PostProvider>
     <div className="container mx-auto ">
-      <CountContext.Provider value={{ onlineCount, setOnlineCount}}>
-      <Header />
-      </CountContext.Provider>
+        <Header />
+        <PostList />
+        <Footer />
     </div>
-
+    </PostProvider>
   );
 }
 
