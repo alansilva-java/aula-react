@@ -6,6 +6,7 @@ import { postReducer } from "@/reducers/postReducer";
 type PostContextType = {
     posts: Post[];
     addPost: (title: string, body: string) => void
+    removePost:(id:number) => void;
 }
 
 
@@ -19,8 +20,12 @@ export const PostProvider =  ({children}: {children:ReactNode}) => {
         });
    
     }
+
+    const removePost = (id:number) => {
+        dispatch({type: 'remove' , payload: {id}})
+    }
      
     return(
-        <PostContext.Provider value={{ posts, addPost }}>{children}</PostContext.Provider>
+        <PostContext.Provider value={{ posts, addPost, removePost }}>{children}</PostContext.Provider>
     );
 }
