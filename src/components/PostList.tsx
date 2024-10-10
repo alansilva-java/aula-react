@@ -1,9 +1,7 @@
-import { PostContext } from "@/app/contexts/PostContext"
-import { useCallback, useContext } from "react"
+import { usePosts } from "@/app/contexts/PostContext"
 
 export const  PostList = () => {
-    const postCtx = useContext(PostContext)
-
+    const postCtx = usePosts();
     return(
         <div>
             {postCtx?.posts.map(item => (
